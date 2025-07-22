@@ -43,9 +43,9 @@ func PerformGetRequest() {
 
 func PerformPostJsonRequest() {
 	const myUrl = "http://localhost:4000/post"
-
-	// fake json payload
-
+	
+		// fake json payload
+	
 	requestBody := strings.NewReader(`
 	{
 	"courseName":"Let's go with golang.",

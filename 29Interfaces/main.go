@@ -1,0 +1,68 @@
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+type Abser interface {
+	Abs() float64
+}
+
+type MyFloat float64
+
+// func main() {
+// 	var a Abser
+
+// 	f := MyFloat(-math.Sqrt2)
+
+// 	v := Vertex{3, 4}
+
+// 	a = f
+// 	a = &v
+
+// 	// THis will not work because v has an pointer receiver and it cannot be satisfied with the interface Abser which causes error because it expects pointer receiver and Abser has an interface Abs which is used to
+// 	// a = v
+
+// 	fmt.Println(a.Abs())
+
+// }
+
+func (f MyFloat) Abs() float64 {
+	if f < 0 {
+		return float64(-f)
+	}
+
+	return float64(f)
+}
+
+type Vertex struct {
+	X, Y float64
+}
+
+func (v *Vertex) Abs() float64 {
+	return math.Sqrt(v.X*v.X + v.Y*v.Y)
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////
+
+// second example
+
+type I interface {
+	M()
+}
+
+type T struct {
+	S string
+}
+
+func (t T) M() {
+	fmt.Println(t.S)
+}
+
+func main() {
+	var i I = T{"Hello world "}
+
+	i.M()
+	
+}
